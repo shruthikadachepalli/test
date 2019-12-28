@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script type="text/javascript">
+function fillData()
+{
+
+Arr=['select','graduation','post graduation ']
+
+
+var dd= document.getElementById("items");
+
+for(i=0;i<Arr.length;i++)
+{
+
+var ele=document.createElement('option')
+ele.text=Arr[i];
+dd.add(ele,i)
+}
+
+
+
+}
+function fillOpts()
+{
+opts=[['Computer Science Engineering','Electronic engineering ','Bachelor of Arts '],['CS','EEE','ECE']]
+
+
+var dd= document.getElementById("items");
+
+var ddOpts= document.getElementById("opts");
+
+ddOpts.innerHTML=null;
+
+idx= dd.selectedIndex;
+console.log();
+
+
+ for(i=0;i<opts[idx-1].length;i++)
+        {
+
+        var ele1=document.createElement('option');
+                ele1.text=opts[idx-1][i];
+        ddOpts.add(ele1,i);    
+        }
+
+}
+
+
+</script>
+<script type="text/javascript">
+    function dobVal() {
+        var d=new Date();
+
+
+                        var year=d.getFullYear();
+                        var mon= d.getMonth()+1;
+                        var d=d.getDate();
+
+                                if(d<10)
+                                        d='0'+d;
+                                        if(mon<10)
+                                        mon='0'+mon;
+                document.getElementById('dob').max=year-18+'-'+mon+'-'+d;                 
+}
+    }
+</script>
+<script type="text/javascript">
+function myFunction(form) {
+  var x = document.getElementById("myInput");
+ 
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+<script type="text/javascript">
+function myFun(form) {
+  var y = document.getElementById("myInp");
+ 
+ 
+    y.type = "text";
+ 
+}
+function validate()
+{
+  var pswd=document.getElementById("myInput").value;
+  var confirm=document.getElementById("myInp").value;
+  
+  if(pswd==confirm){}
+  else
+    {
+	  alert("password doesn't match");
+	}
+}
+</script>
+
+
+</head>
+<body>
+
+<form>
+<table border = 1 align = "center">
+
+<tr>
+
+<td>Password:</td>
+<td><input type = "password" name = "password1"  id="myInput" required></td >
+</tr>
+<tr>
+
+<td>Confirm Password:</td>
+<td><input type = "password" name = "password2"  id="myInp" required></td >
+</tr>
+
+
+<tr>
+<td colspan = 2 align = right>
+<input type = submit value = "Submit" onclick="validate()"></td>
+</tr>
+<tr>
+<input type="checkbox" onclick="myFunction()" required >Show Password
+</tr>
+</table>
+
+<br>
+<body onload="fillData()">
+
+<select id="items" onchange ="fillOpts()" required>
+
+</select>
+
+<select id="opts" required>
+
+</select>
+
+<span class="error" id="lblError"></span>
+<br />
+<br />
+DOB: <input type="date" id="dob" onclick="dobVal()" required>
+<br>
+<input type="submit" value="submit">
+</form>
+
+</body>
+</html>   
